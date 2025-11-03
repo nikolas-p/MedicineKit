@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MedKit</string>
+    <string name="title_settings">Больше</string>
+    <string name="title_notifications">Приёмы</string>
+    <string name="title_medications">Лекарства</string>
+    <string name="title_search">Поиск</string>
+
+    <string name="add_medication">Add Medication</string>
+    <string name="options">Options</string>
+    <string name="back">Back</string>
+</resources>

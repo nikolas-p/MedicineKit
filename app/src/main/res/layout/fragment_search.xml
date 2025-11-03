@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.search.SearchFragment">
+
+    <!-- Ваш существующий Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FFFFFF"
+        android:visibility="visible"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:elevation="10dp">
+
+        <RelativeLayout
+            android:layout_marginEnd="40sp"
+            android:layout_marginStart="40sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/btn_add"
+                style="@style/ToolBarImageButton"
+                android:src="@drawable/x_circle"
+                android:layout_alignParentStart="true"
+                android:contentDescription="add_medication"/>
+
+            <EditText
+                android:layout_height="40sp"
+                android:layout_width="200sp"
+                android:id="@+id/myEditText"
+                style="@style/CustomEditTextStyle"
+               android:layout_centerInParent="true"
+                android:fontFamily="@font/nunito_extrabold"
+                android:hint="Введите текст"
+                android:textColorHint="#BCBCBC"
+                android:lineSpacingMultiplier="0.6"
+                android:imeOptions="actionDone" />
+
+            <ImageButton
+                android:id="@+id/btn_options"
+                style="@style/ToolBarImageButton"
+                android:layout_alignParentEnd="true"
+                android:contentDescription="options"
+                android:src="@drawable/check_circle" />
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingEnd="40sp"
+    android:paddingStart="40sp"
+    android:orientation="vertical"
+    >
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
+         android:gravity="bottom"
+         >
+         <TextView
+             android:fontFamily="@font/nunito_extrabold"
+             android:textColor="@color/purple_500"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Лекарства"
+             android:textSize="30sp"
+             android:layout_marginEnd="10sp"
+
+             />
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="(20 совпадений)"
+             android:textSize="20sp"
+
+             />
+
+     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_gray_border"
+        android:padding="10sp"
+        android:layout_marginBottom="14sp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <FrameLayout
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:background="@drawable/rounded_gray_border"
+                android:layout_gravity="center_horizontal"
+                android:elevation="1dp"
+
+                >
+
+                <ImageView
+                    android:layout_width="90sp"
+                    android:layout_height="90sp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/spray"
+                    android:contentDescription="картинка спрей"
+                    />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_extrabold"
+                android:textSize="24sp"
+                android:layout_marginStart="10sp"
+                android:lineSpacingMultiplier="0.6"
+                android:lines="4"
+                android:ellipsize="end"
+                android:text="Бакторицидный пластырь"
+                />
+        </LinearLayout>
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/c"
+        android:layout_width="match_parent"
+        android:layout_height="20sp"
+        android:padding="8dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        >
+        <TextView
+            android:fontFamily="@font/nunito_extrabold"
+            android:textColor="@color/purple_500"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Категории"
+            android:textSize="30sp"
+            android:layout_marginEnd="10sp"
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="(10 совпадений)"
+            android:textSize="20sp"
+
+            />
+
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_gray_border"
+        android:padding="10sp"
+        android:layout_marginBottom="14sp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_extrabold"
+            android:textSize="24sp"
+            android:layout_marginStart="10sp"
+            android:lineSpacingMultiplier="0.6"
+
+            android:text="Витамины и Бады"
+            />
+    </FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/b"
+        android:layout_width="match_parent"
+        android:layout_height="20sp"
+        android:padding="8dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        >
+        <TextView
+            android:fontFamily="@font/nunito_extrabold"
+            android:textColor="@color/purple_500"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Приёмы"
+            android:textSize="30sp"
+            android:layout_marginEnd="10sp"
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="(20 совпадений)"
+            android:textSize="20sp"
+
+            />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="100sp"
+        android:background="@drawable/rounded_gray_border"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="10sp"
+            android:weightSum="7">
+
+            <!-- TextView (1 часть) -->
+            <TextView
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:layout_weight="2"
+                android:fontFamily="@font/nunito_extrabold"
+                android:text="16:30"
+                android:textSize="20sp" />
+            <!-- ImageButton (1 часть) -->
+
+            <!-- FrameView (1 часть) -->
+            <FrameLayout
+
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/rounded_gray_border"
+
+                android:elevation="1dp"
+                android:layout_marginBottom="20sp"
+                android:layout_marginTop="20sp"
+                >
+
+                <ImageView
+                    android:layout_width="60sp"
+                    android:layout_height="60sp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/spray"
+                    android:contentDescription="картинка спрей"
+                    />
+            </FrameLayout>
+
+            <!-- TextView (2 части) -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:fontFamily="@font/nunito_extrabold"
+                android:textColor="@color/purple_500"
+                android:textSize="20sp"
+                android:lineSpacingMultiplier="0.6"
+                android:lines="4"
+                android:ellipsize="end"
+                android:text="Аскорбинка витаминка полезная с витаминами  А и С"
+                android:layout_marginStart="10sp"
+                />
+
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/a"
+        android:layout_width="match_parent"
+        android:layout_height="10sp"
+        android:padding="8dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+</LinearLayout>
+
+
+
+
+
+</LinearLayout>

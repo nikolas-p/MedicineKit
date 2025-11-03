@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.medications.intakes.IntakesLogFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FFFFFF"
+        android:visibility="visible"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:elevation="10dp">
+
+        <RelativeLayout
+            android:layout_marginEnd="40sp"
+            android:layout_marginStart="40sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                style="@style/ToolBarImageButton"
+                android:src="@drawable/arrow_left_circle"
+                android:layout_alignParentStart="true"
+                android:contentDescription="add_medication"/>
+
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="200sp"
+                android:layout_height="40sp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10sp"
+                android:fontFamily="@font/nunito_extrabold"
+                android:gravity="center"
+                android:lineSpacingMultiplier="0.8"
+                android:text="Журнал приёмов"
+                android:textColor="@color/purple_500"
+                android:textSize="20sp"
+                />
+
+            <ImageButton
+                android:id="@+id/btn_options"
+                style="@style/ToolBarImageButton"
+                android:layout_alignParentEnd="true"
+                android:contentDescription="options"
+                android:src="@drawable/three_dots_oneline" />
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:id="@+id/options_menu"
+            android:layout_width="match_parent"
+            android:layout_marginEnd="40sp"
+            android:layout_marginStart="40sp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_white_bg"
+            android:elevation="10dp"
+            android:layout_marginTop="10sp"
+            android:orientation="vertical"
+            android:padding="12sp"
+            android:paddingStart="20sp"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2sp"
+                android:textSize="24sp"
+                android:text="Отчёт PDF"
+                android:fontFamily="@font/nunito_extrabold"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2sp"
+                android:textSize="24sp"
+                android:text="Правка"
+                android:fontFamily="@font/nunito_extrabold"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2sp"
+                android:textColor="#D32F2F"
+                android:textSize="24sp"
+                android:text="Удалить"
+                android:fontFamily="@font/nunito_extrabold"
+                />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="40sp"
+            android:layout_marginEnd="40sp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+                >
+
+                <FrameLayout
+                    android:id="@+id/nevigate_to_medicine_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_gray_border"
+                    android:padding="10sp"
+                    android:layout_marginBottom="14sp"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+                        <FrameLayout
+                            android:layout_width="100sp"
+                            android:layout_height="100sp"
+                            android:background="@drawable/rounded_gray_border"
+                            android:layout_gravity="center_horizontal"
+                            android:elevation="1dp"
+
+                            >
+
+                            <ImageView
+                                android:layout_width="90sp"
+                                android:layout_height="90sp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/spray"
+                                android:contentDescription="картинка спрей"
+                                />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_extrabold"
+                            android:textSize="24sp"
+                            android:layout_marginStart="10sp"
+                            android:lineSpacingMultiplier="0.6"
+                            android:text="Аскорбинка витаминка полезная с витамином С"
+                            />
+                    </LinearLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_gray_border"
+                    android:padding="10sp"
+                    android:layout_marginBottom="60sp"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_bold"
+                            android:textSize="20sp"
+                            android:layout_marginStart="10sp"
+                            android:text="Ползователь"
+                            />
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/rounded_gray_border"
+                            android:padding="10sp">
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical">
+
+
+                                <TextView
+                                    android:layout_alignParentStart="true"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/nunito_extrabold"
+
+                                    android:lineSpacingMultiplier="0.6"
+                                    android:textSize="24sp"
+                                    android:text="Вы"/>
+
+
+                                <ImageButton
+                                    android:layout_height="30sp"
+                                    style="@style/ToolBarImageButton"
+                                    android:src="@drawable/chevron_right"
+                                    android:layout_alignParentEnd="true"
+                                    android:contentDescription="add_medication"/>
+
+
+                            </RelativeLayout>
+                        </FrameLayout>
+                    </LinearLayout>
+                </FrameLayout>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/nav_create_intake"
+                    style="@style/OutlineButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/nunito_extrabold"
+                    android:textSize="24sp"
+                    android:text="+ внести приём"
+                    android:layout_marginBottom="20sp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/intake_item">
+
+                    <!-- Текст слева -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="пропущено"
+                        android:textSize="16sp"
+                        android:gravity="start" />
+
+                    <!-- Текст справа -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 нояб., 10:10"
+                        android:textSize="16sp"
+                        android:textColor="#666666"
+                        android:gravity="end" />
+
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#CCCCCC" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Текст слева -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="пропущено"
+                        android:textSize="16sp"
+                        android:gravity="start" />
+
+                    <!-- Текст справа -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 нояб., 20:20"
+                        android:textSize="16sp"
+                        android:textColor="#666666"
+                        android:gravity="end" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#CCCCCC" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Текст слева -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="принято"
+                        android:textSize="16sp"
+                        android:gravity="start" />
+
+                    <!-- Текст справа -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="30 окт., 12:20"
+                        android:textSize="16sp"
+                        android:textColor="#666666"
+                        android:gravity="end" />
+
+                </LinearLayout>
+
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+        </ScrollView>
+    </RelativeLayout>
+
+
+</LinearLayout>

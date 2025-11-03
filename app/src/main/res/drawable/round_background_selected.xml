@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Внутренний круг (фиолетовый) -->
+    <item android:left="8sp" android:top="8sp" android:right="8sp" android:bottom="8sp">
+        <shape android:shape="oval">
+            <solid android:color="#FF6200EE" /> <!-- Фиолетовый цвет -->
+        </shape>
+    </item>
+    <!-- Внешняя обводка (серая) -->
+    <item>
+        <shape android:shape="oval">
+            <stroke
+                android:width="4sp"
+                android:color="#D1D1D1" />
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+</layer-list>

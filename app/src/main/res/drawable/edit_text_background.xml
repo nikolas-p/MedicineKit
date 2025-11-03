@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Фиолетовая рамка когда EditText активен -->
+    <item android:state_focused="true">
+        <shape>
+            <solid android:color="@android:color/transparent" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/purple_500" />
+            <corners android:radius="20sp" />
+        </shape>
+    </item>
+
+    <!-- Серая рамка когда EditText не активен -->
+    <item>
+        <shape>
+            <solid android:color="@android:color/transparent" />
+            <stroke
+                android:width="1dp"
+                android:color="#808080" />
+            <corners android:radius="20sp" />
+        </shape>
+    </item>
+</selector>

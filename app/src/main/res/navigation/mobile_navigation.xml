@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_medications">
+
+    <fragment android:id="@+id/settings_theme"
+        android:name="com.example.medkit.ui.settings.ThemeFragment"
+        tools:layout="@layout/fragment_theme"
+        android:label=""
+        />
+    <fragment android:id="@+id/settings_color"
+        android:name="com.example.medkit.ui.settings.ColorFragment"
+        tools:layout="@layout/fragment_color"
+        android:label=""
+        />
+    <fragment android:id="@+id/settings_font"
+        android:name="com.example.medkit.ui.settings.FontFragment"
+        tools:layout="@layout/fragment_font"
+        android:label=""
+        />
+    <fragment android:id="@+id/settings_consumers"
+        android:name="com.example.medkit.ui.settings.consumers.ConsumersFragment"
+        tools:layout="@layout/fragment_consumers"
+        android:label=""
+        />
+    <fragment android:id="@+id/settings_category"
+        android:name="com.example.medkit.ui.settings.category.CategoriesFragment"
+        tools:layout="@layout/fragment_categories"
+        android:label=""
+        />
+    <fragment android:id="@+id/navigation_settings"
+        android:name="com.example.medkit.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" >
+
+        <action
+            android:id="@+id/action_navigation_settings_to_settings_consumers"
+            app:destination="@id/settings_consumers" />
+        <action
+            android:id="@+id/action_navigation_settings_to_settings_font"
+            app:destination="@id/settings_font" />
+        <action
+            android:id="@+id/action_navigation_settings_to_settings_theme"
+            app:destination="@id/settings_theme" />
+        <action
+            android:id="@+id/action_navigation_settings_to_settings_category"
+            app:destination="@id/settings_category" />
+        <action
+            android:id="@+id/action_navigation_settings_to_settings_color"
+            app:destination="@id/settings_color" />
+    </fragment>
+
+
+
+    <fragment android:id="@+id/navigation_edit_intakes_log"
+        android:name="com.example.medkit.ui.medications.intakes.EditIntakesLogFragment"
+        tools:layout="@layout/fragment_edit_intakes_log"
+        android:label=""/>
+    <fragment android:id="@+id/navigation_intake"
+        android:name="com.example.medkit.ui.medications.intakes.IntakeFragment"
+        tools:layout="@layout/fragment_intake"
+        android:label=""/>
+    <fragment android:id="@+id/navigation_intakes"
+        android:name="com.example.medkit.ui.medications.intakes.IntakesLogFragment"
+        tools:layout="@layout/fragment_intake_log"
+        android:label="">
+
+        <action android:id="@+id/action_to_edit_intakeslog"
+            app:destination="@+id/navigation_edit_intakes_log"/>
+
+        <action android:id="@+id/ation_to_intake"
+            app:destination="@+id/navigation_intake"/>
+        <action
+            android:id="@+id/action_navigation_intakes_to_create_intake"
+            app:destination="@id/create_intake" />
+
+    </fragment>
+
+
+
+    <fragment android:id="@+id/medicine_edit_card"
+        android:name="com.example.medkit.ui.medications.editmedication.EditCardFragment"
+        tools:layout="@layout/fragment_edit_card"
+        android:label=""/>
+    <fragment android:id="@+id/medicine_edit_media"
+        android:name="com.example.medkit.ui.medications.editmedication.EditMediaFragment"
+        tools:layout="@layout/fragment_edit_media"
+        android:label=""/>
+
+
+
+    <fragment android:id="@+id/navigation_medication"
+        android:name="com.example.medkit.ui.medications.MedicationFragment"
+        tools:layout="@layout/fragment_medication"
+        android:label="">
+
+        <action android:id="@+id/action_to_intakeslog"
+            app:destination="@id/navigation_intakes"  />
+
+
+    </fragment>
+
+    <fragment android:id="@+id/navigation_quick_medications"
+        android:name="com.example.medkit.ui.medications.QuickMedicationsFragment"
+        tools:layout="@layout/fragment_quick_medications"
+        android:label=""/>
+
+    <fragment android:id="@+id/create_medication"
+        android:name="com.example.medkit.ui.medications.CreateMedicationFragment"
+        android:label="@string/title_medications"
+        tools:layout="@layout/fragment_create_medication">
+
+        <action android:id="@+id/action_to_quick_medication"
+            app:destination="@+id/navigation_quick_medications"/>
+        <action
+            android:id="@+id/action_create_medication_to_medicine_edit_media"
+            app:destination="@id/medicine_edit_media" />
+        <action
+            android:id="@+id/action_create_medication_to_medicine_edit_card"
+            app:destination="@id/medicine_edit_card" />
+
+
+    </fragment>
+    <fragment android:id="@+id/navigation_medications"
+        android:name="com.example.medkit.ui.medications.MedicationsFragment"
+        android:label="@string/title_medications"
+        tools:layout="@layout/fragment_medications" >
+        
+        <action android:id="@+id/action_to_create_medication"
+            app:destination="@+id/create_medication"/>
+
+        <action android:id="@+id/action_to_medication"
+            app:destination="@+id/navigation_medication"/>
+
+
+    </fragment>
+
+  <fragment
+      android:id="@+id/edit_med_course"
+      android:name="com.example.medkit.ui.intakes.EditMedCourseFragment"
+      tools:layout="@layout/fragment_edit_med_course"/>
+
+    <fragment
+        android:id="@+id/med_course"
+        android:name="com.example.medkit.ui.intakes.MedCourseFragment"
+        tools:layout="@layout/fragment_medicine_course"/>
+
+    <fragment
+        android:id="@+id/med_courses"
+        android:name="com.example.medkit.ui.intakes.MedicineCoursesFragment"
+        tools:layout="@layout/fragment_medicine_courses">
+        <action
+            android:id="@+id/action_med_courses_to_med_course"
+            app:destination="@id/med_course" />
+    </fragment>
+
+    <fragment android:id="@+id/create_intake"
+        android:name="com.example.medkit.ui.intakes.CreateIntakeFragment"
+        tools:layout="@layout/fragment_create_intake"
+        />
+
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.medkit.ui.intakes.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" >
+        <action
+            android:id="@+id/action_navigation_notifications_to_med_courses"
+            app:destination="@id/med_courses" />
+        <action
+            android:id="@+id/action_navigation_notifications_to_edit_med_course"
+            app:destination="@id/edit_med_course" />
+        <action
+            android:id="@+id/action_navigation_notifications_to_create_intake"
+            app:destination="@id/create_intake" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.example.medkit.ui.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" />
+
+
+</navigation>

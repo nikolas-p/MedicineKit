@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context=".ui.intakes.NotificationsFragment">
+
+<!-- Ваш существующий Toolbar -->
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="#FFFFFF"
+    android:visibility="visible"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat"
+    android:elevation="10dp">
+
+    <RelativeLayout
+        android:layout_marginEnd="40sp"
+        android:layout_marginStart="40sp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/btn_add"
+            style="@style/ToolBarImageButton"
+            android:src="@drawable/plus_circle"
+            android:layout_alignParentStart="true"
+            android:contentDescription="add_medication"/>
+
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="200sp"
+            android:layout_height="40sp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10sp"
+            android:fontFamily="@font/nunito_extrabold"
+            android:gravity="center"
+            android:lineSpacingMultiplier="0.8"
+            android:text="Приёмы"
+            android:textColor="@color/purple_500"
+            android:textSize="20sp"
+            />
+
+        <ImageButton
+            android:id="@+id/btn_options"
+            style="@style/ToolBarImageButton"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="options"
+            android:src="@drawable/three_dots_oneline" />
+    </RelativeLayout>
+</androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:id="@+id/options_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="10sp"
+        android:layout_marginEnd="40sp"
+        android:background="@drawable/rounded_white_bg"
+        android:elevation="10dp"
+        android:orientation="vertical"
+        android:padding="12sp"
+        android:paddingStart="20sp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/option_weekly_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2sp"
+            android:fontFamily="@font/nunito_extrabold"
+            android:text="Сегодня"
+            android:textSize="24sp"
+
+            />
+
+        <TextView
+            android:id="@+id/option_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2sp"
+            android:fontFamily="@font/nunito_extrabold"
+            android:text="Календарь"
+            android:textSize="24sp" />
+
+
+        <TextView
+            android:id="@+id/option_actual_med_course"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2sp"
+            android:fontFamily="@font/nunito_extrabold"
+            android:text="Актуальные курсы"
+            android:textSize="24sp" />
+
+
+        <TextView
+            android:id="@+id/option_archive_med_course"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_extrabold"
+            android:text="Архив курсов"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="50sp">
+
+            <CalendarView
+                android:id="@+id/calendar"
+                style="@android:style/Widget.Material.CalendarView"
+                android:layout_width="match_parent"
+                android:layout_height="300sp"
+                android:descendantFocusability="beforeDescendants"
+                android:maxDate="01/01/2030"
+                android:minDate="01/01/2020"
+                android:selectedWeekBackgroundColor="#512DA8" />
+            <LinearLayout
+                android:id="@+id/weekly_calendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dateText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nunito_extrabold"
+                    android:textSize="20sp"
+                    android:text="воскресенье"
+                    android:gravity="center_horizontal" />
+
+                <View
+                    android:layout_width="5sp"
+                    android:layout_height="match_parent"
+                    android:background="#8E8E8E"
+                    android:layout_marginEnd="10sp"
+                    android:layout_marginStart="10sp" />
+
+                <TextView
+                    android:id="@+id/dayText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nunito_extrabold"
+                    android:textSize="20sp"
+                    android:text="2 ноября"
+                    android:gravity="center_horizontal" />
+            </LinearLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:flexWrap="wrap"
+                app:alignItems="stretch"
+                app:alignContent="stretch"
+                app:justifyContent="space_evenly"
+                android:padding="8sp"
+                >
+
+            <FrameLayout
+
+                android:id="@+id/roundFrameLayout1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/round_background"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <FrameLayout
+
+                android:id="@+id/roundFrameLayout2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/round_background"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <FrameLayout
+
+                android:id="@+id/roundFrameLayout3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/round_background_selected"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <FrameLayout
+
+                android:id="@+id/roundFrameLayout4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/round_background"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <FrameLayout
+
+                android:id="@+id/roundFrameLayout5"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/round_background"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            </LinearLayout>
+            <TextView
+                android:fontFamily="@font/nunito_extrabold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Внесение"
+                android:textSize="30sp"
+                android:layout_marginEnd="10sp"
+                />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="100sp"
+                android:background="@drawable/rounded_gray_border"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="10sp"
+                    android:weightSum="7">
+
+
+
+                    <!-- FrameView (1 часть) -->
+                    <FrameLayout
+
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="@drawable/rounded_gray_border"
+
+                        android:elevation="1dp"
+                        android:layout_marginBottom="20sp"
+                        android:layout_marginTop="20sp"
+                        >
+
+                        <ImageView
+                            android:layout_width="60sp"
+                            android:layout_height="60sp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/spray"
+                            android:contentDescription="картинка спрей"
+                            />
+                    </FrameLayout>
+
+                    <!-- TextView (2 части) -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:fontFamily="@font/nunito_extrabold"
+                        android:textColor="@color/purple_500"
+                        android:textSize="20sp"
+                        android:lineSpacingMultiplier="0.6"
+                        android:lines="4"
+                        android:ellipsize="end"
+                        android:text="Аскорбинка витаминка полезная с витаминами  А и С"
+                        android:layout_marginStart="10sp"
+                        />
+
+                    <!-- TextView (1 часть) -->
+                    <TextView
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nunito_extrabold"
+                        android:text="16:30"
+                        android:textSize="20sp" />
+                    <!-- ImageButton (1 часть) -->
+                    <ImageButton
+                        android:id="@+id/nav_create_intake"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/chevron_right"
+                        style="@style/ToolBarImageButton"/>
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_nav_create_intake"
+                style="@style/OutlineButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/nunito_extrabold"
+                android:textSize="24sp"
+                android:text="+ внести приём"
+                android:layout_marginBottom="20sp"
+                />\
+
+
+            <TextView
+                android:fontFamily="@font/nunito_extrabold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Внесённые"
+                android:textSize="30sp"
+                android:layout_marginEnd="10sp"
+                />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="100sp"
+                android:background="@drawable/rounded_gray_border"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="10sp"
+                    android:weightSum="7">
+
+
+
+                    <!-- FrameView (1 часть) -->
+                    <FrameLayout
+
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="@drawable/rounded_gray_border"
+
+                        android:elevation="1dp"
+                        android:layout_marginBottom="20sp"
+                        android:layout_marginTop="20sp"
+                        >
+
+                        <ImageView
+                            android:id="@+id/medicine_icon"
+                            android:layout_width="60sp"
+                            android:layout_height="60sp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/spray"
+                            android:contentDescription="картинка спрей"
+                            />
+                    </FrameLayout>
+
+                    <!-- TextView (2 части) -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:fontFamily="@font/nunito_extrabold"
+                        android:textColor="@color/purple_500"
+                        android:textSize="20sp"
+                        android:lineSpacingMultiplier="0.6"
+                        android:lines="4"
+                        android:ellipsize="end"
+                        android:text="Аскорбинка витаминка полезная с витаминами  А и С"
+                        android:layout_marginStart="10sp"
+                        />
+
+                    <!-- TextView (1 часть) -->
+                    <TextView
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nunito_extrabold"
+                        android:text="6:30"
+                        android:textSize="20sp" />
+                    <!-- ImageButton (1 часть) -->
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/chevron_right"
+                        style="@style/ToolBarImageButton"/>
+
+                </LinearLayout>
+            </FrameLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
